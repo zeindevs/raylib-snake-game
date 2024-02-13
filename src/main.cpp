@@ -1,5 +1,6 @@
-#include "game.h"
 #include <raylib.h>
+
+#include "game.hpp"
 
 Color green = Color{173, 204, 96, 255};
 Color darkGreen = Color{43, 51, 24, 255};
@@ -20,15 +21,15 @@ bool eventTriggered(double interval) {
 }
 
 int main() {
-
-  InitWindow(2 * offset + cellSize * cellCount,
-             2 * offset + cellSize * cellCount, "Snake Game!");
+  InitWindow(2 * offset + cellSize * cellCount, 2 * offset + cellSize * cellCount, "Snake Game!");
   SetTargetFPS(60);
 
   Game game = Game();
-  Rectangle rectangle = Rectangle{(float)(offset - 5), (float)(offset - 5),
-                                  (float)(cellSize * cellCount + 10),
-                                  (float)(cellSize * cellCount + 10)};
+  Rectangle rectangle = Rectangle{
+      (float)(offset - 5),
+      (float)(offset - 5),
+      (float)(cellSize * cellCount + 10),
+      (float)(cellSize * cellCount + 10)};
 
   while (WindowShouldClose() == false) {
     BeginDrawing();
@@ -60,8 +61,12 @@ int main() {
     ClearBackground(green);
     DrawRectangleLinesEx(rectangle, 5, darkGreen);
     DrawText("Snake Game!", offset - 5, 5, 20, darkGreen);
-    DrawText(TextFormat("%i", game.score), offset - 5,
-             offset + cellSize * cellCount + 10, 20, darkGreen);
+    DrawText(
+        TextFormat("%i", game.score),
+        offset - 5,
+        offset + cellSize * cellCount + 10,
+        20,
+        darkGreen);
     game.Draw();
 
     EndDrawing();

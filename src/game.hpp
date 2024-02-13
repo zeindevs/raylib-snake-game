@@ -1,12 +1,12 @@
-#ifndef H_GAME
-#define H_GAME
+#pragma once
 
-#include "food.h"
-#include "raylib.h"
-#include "snake.h"
+#include <raylib.h>
+
+#include "food.hpp"
+#include "snake.hpp"
 
 class Game {
-public:
+ public:
   int cellSize = 20;
   int cellCount = 20;
   int offset = 30;
@@ -30,5 +30,3 @@ public:
   void CheckCollisionWithTail();
   void GameOver();
 };
-
-#endif // H_GAME

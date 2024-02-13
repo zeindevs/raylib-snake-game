@@ -1,11 +1,13 @@
-#include "food.h"
-#include "food_image.h"
-#include <deque>
+#include "food.hpp"
+
 #include <raylib.h>
 #include <raymath.h>
 
-Food::Food(int cellSize, int cellCount, int offset,
-           std::deque<Vector2> snakeBody) {
+#include <deque>
+
+#include "food_image.h"
+
+Food::Food(int cellSize, int cellCount, int offset, std::deque<Vector2> snakeBody) {
   this->cellSize = cellSize;
   this->cellCount = cellCount;
   this->offset = offset;
@@ -31,14 +33,12 @@ Food::~Food() {
 }
 
 void Food::Draw() {
-  DrawTexture(texture, offset + position.x * cellSize,
-              offset + position.y * cellSize, WHITE);
+  DrawTexture(texture, offset + position.x * cellSize, offset + position.y * cellSize, WHITE);
 }
 
 bool Food::ElementInDeque(Vector2 element, std::deque<Vector2> deque) {
   for (unsigned int i = 0; i < deque.size(); i++) {
-    if (Vector2Equals(deque[i], element))
-      return true;
+    if (Vector2Equals(deque[i], element)) return true;
   }
   return false;
 }

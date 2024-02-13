@@ -1,9 +1,12 @@
-#include "game.h"
-#include "raylib.h"
+#include "game.hpp"
+
+#include <raylib.h>
+#include <raymath.h>
+
+#include <deque>
+
 #include "wav1.h"
 #include "wav2.h"
-#include <deque>
-#include <raymath.h>
 
 Game::Game() {
   InitAudioDevice();

@@ -1,7 +1,7 @@
-#ifndef H_FOOD
-#define H_FOOD
+#pragma once
 
-#include "raylib.h"
+#include <raylib.h>
+
 #include <deque>
 
 class Food {
@@ -9,7 +9,7 @@ class Food {
   int cellCount;
   int offset;
 
-public:
+ public:
   Texture texture;
   Vector2 position;
   Image image;
@@ -22,5 +22,3 @@ public:
   Vector2 GenerateRandomCell();
   Vector2 GenerateRandomPos(std::deque<Vector2> snakeBody);
 };
-
-#endif // H_FOOD
